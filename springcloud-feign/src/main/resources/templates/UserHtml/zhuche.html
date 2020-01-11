@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap Flat Registration Form Template</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/css/form-elements.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicon and touch icons -->
+    <!--<link rel="shortcut icon" href="../assets/ico/favicon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+-->
+
+    <style>
+
+        .bg{
+            background-image: url("../assets/zhucheImg.jpg");/*设置背景图片*/
+            background-repeat:no-repeat;/*图片适应窗口大小，这里设置的是不进行平铺*/
+            background-attachment: fixed;/*图片相对于浏览器固定,这里设置背景图片固定，不随内容滚动*/
+            background-origin: border-box;/*从边框区域显示*/
+            background-size:cover;/*指定图片大小，此时会保持图像的纵横比并将图像缩放成将完全覆盖背景定位区域的最小大小*/
+            height:100%;
+            width: 100%;
+        }
+    </style>
+
+</head>
+<body class="bg">
+
+<!-- Top menu -->
+<nav class="navbar navbar-inverse navbar-no-bg" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-navbar-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">Bootstrap Flat Registration Form Template</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="top-navbar-1">
+            <!--	<ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <span class="li-text">
+                            Put some text or
+                        </span>
+                        <a href="#"><strong>links</strong></a>
+                        <span class="li-text">
+                            here, or some icons:
+                        </span>
+                        <span class="li-social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-envelope"></i></a>
+                            <a href="#"><i class="fa fa-skype"></i></a>
+                        </span>
+                    </li>
+                </ul>-->
+        </div>
+    </div>
+</nav>
+
+<!-- Top content -->
+<div class="top-content">
+    <div class=""><a href="#"  title="网站模板"></a></div>
+    <div class="">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-7 text">
+                    <!--                            <h1><strong>Bootstrap</strong> Flat Registration Form</h1>-->
+                    <!--                            <div class="description">-->
+                    <!--                            	<p>-->
+                    <!--	                            	This is a free responsive flat registration form made with Bootstrap. -->
+                    <!--	                            	Download it on <a href="#"><strong>AZMIND</strong></a>, customize and use it as you like!-->
+                    <!--                            	</p>-->
+                    <!--                            </div>-->
+                    <!--                            <div class="top-big-link">-->
+                    <!--                            	<a class="btn btn-link-1" href="#">Button 1</a>-->
+                    <!--                            	<a class="btn btn-link-2" href="#">Button 2</a>-->
+                    <!--                            </div>-->
+                </div>
+                <div class="col-sm-5 form-box" style="background-color: sandybrown">
+                    <div class="form-top">
+                        <div class="form-top-left">
+                            <h3>注册账户</h3>
+                        </div>
+                        <div class="form-top-right">
+                            <i class="fa fa-pencil"></i>
+                        </div>
+                        <div class="form-top-divider"></div>
+                    </div>
+                    <div class="form-bottom">
+
+                        <form role="form" id="zhucheform">
+
+                            <div class="form-group">
+                                <label class="sr-only" for="form-first-name">First name</label>
+                                <input type="text" name="userNiCheng" placeholder="请输入昵称" class="form-first-name form-control" id="userNiCheng">
+                            </div>
+                            <div class="form-group">
+                                <label class="sr-only" for="form-first-name">First name</label>
+                                <input type="text" name="userPhone" placeholder="请输入手机号" class="form-first-name form-control" id="Phone">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="sr-only" for="form-last-name">Last name</label>
+                                <input type="text" name="userPasw1" placeholder="请输入密码" class="form-last-name form-control" id="userPasw1">
+                            </div>
+                            <div class="form-group">
+                                <label class="sr-only" for="form-last-name">Last name</label>
+                                <input type="text" name="userPasw" placeholder="请确定密码" class="form-last-name form-control" id="userPasw">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="sr-only" for="form-last-name">Last name</label>
+                                <input type="text" name="userMail" placeholder="请输入邮箱" class="form-last-name form-control" id="userMail">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="sr-only" for="form-last-name">Last name</label>
+                                <input type="text" name="code" size="20px" placeholder="请输入验证码" id="userMail">
+                                                                                                                                                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <input type="button" class="btn btn-primary" id="btn" value="免费获取验证码" onclick="settime(this)" />
+                            </div>
+                            <button type="button" onclick="zhuche()" class="btn">立即注册</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript">
+
+    var countdown=60;
+    function settime(obj) {
+
+        var Phone = $("#Phone").val();   // 手机号不能为空
+
+        if (Phone != null && Phone !="" && Phone !="请重新填写"){
+
+              if (countdown == 0) {
+                  obj.removeAttribute("disabled");
+                  obj.value="免费获取验证码";
+                  countdown = 60;
+                  return;
+              } else {
+                  obj.setAttribute("disabled", true);
+                  obj.value="重新发送(" + countdown + ")";
+                  countdown--;
+              }
+              setTimeout(function() {
+                      settime(obj) }
+                  ,1000)
+
+            var buttonvalue = $("#btn").val();
+
+            if (buttonvalue == "重新发送(59)"){
+
+                $.ajax({
+                    url:"../user/yzmcoud",
+                    type:"GET",
+                    data:{userPhone:Phone},
+                    success:function (data) {
+                        alert(data+"===================")
+                        if (data.match("该手机号已注册,请更换手机号")){
+                            $("#Phone").val("请重新填写");
+
+                            if (countdown <= 60) {
+                                obj.removeAttribute("disabled");
+                                obj.value="免费获取验证码";
+                                countdown = 60;
+                                return;
+                            }
+                        }
+                    }
+                })
+            }
+        }else if (Phone == "") {
+            alert("手机号不能为空")
+        }
+    }
+
+</script>
+
+<script>
+    // 注册
+    zhuche = function () {
+        $.ajax({
+            url:"../user/zhuche",
+            type:"POST",
+            data:$("#zhucheform").serialize(),
+            success:function (data) {
+
+                if (data.match('注册成功')){
+                        alert(data+"   点击确定到登陆")
+                        location.href="../tz/login1";
+                }else {
+
+                    alert(data)
+                }
+            }
+        })
+    }
+</script>
+
+<!-- Javascript -->
+<script src="../assets/js/jquery-1.11.1.min.js"></script>
+<script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="../assets/js/jquery.backstretch.min.js"></script>
+<!--
+<script src="../assets/js/retina-1.1.0.min.js"></script>
+-->
+<script src="../assets/js/scripts.js"></script>
+
+<!--[if lt IE 10]>
+<script src="../assets/js/placeholder.js"></script>
+-->
+<![endif]-->
+
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jk.mapper.UserMapper">
+
+    <!--注册账号-->
+    <insert id="zhucheUser">
+
+        INSERT into MSUser (userNiCheng,userAccount,userPasw,userPhone,userMail,userzhucheDate,AccountStatus)
+
+		VALUES(#{userNiCheng},#{userAccount},#{userPasw},#{userPhone},#{userMail},NOW(),1)
+    </insert>
+
+    <!--根据手机号查询 是否注册过-->
+    <select id="queryUserName" resultType="com.jk.model.UserModel">
+        select * from msuser u where u.userPhone = #{value}
+    </select>
+
+
+    <!--登陆  根据 手机号 或者 账号在登陆 查询 用户-->
+    <select id="queryUserAccount" resultType="com.jk.model.UserModel">
+
+        SELECT * FROM msuser u
+            where
+            (u.userAccount = #{value} or u.userPhone = #{value})
+    </select>
+
+    <!-- 推荐 信息-->
+    <select id="Fangtuijian" resultType="com.jk.model.FangJianModel">
+
+        SELECT f.fangId,f.fangImg,f.fangAddress,f.fangInfo,f.fangName,f.fangPrice
+            FROM fangjianinfo f
+            order by f.fangScore
+            desc LIMIT 0,6
+    </select>
+
+    <!-- 推荐 详细 信息-->
+    <select id="tuijianxianqing" resultType="com.jk.model.FangJianModel">
+        SELECT *
+            FROM fangjianinfo f
+            where f.fangId = #{value}
+    </select>
+
+    <!-- 根据房子ID 查询图片-->
+    <select id="queryFangImg" resultType="String">
+        SELECT i.aimg FROM t_img i where i.tid = #{value}
+    </select>
+
+</mapper>

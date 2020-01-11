@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+        <meta name="author" content="order by dede58.com"/>
+		<title></title>
+		<script src="../js/jquery-1.9.1.min.js"></script>
+		<link rel="stylesheet" href="../js/css/login.css">
+
+
+		<style>
+
+			.bg{
+				background-image: url("../assets/zhucheImg.jpg");/*设置背景图片*/
+				background-repeat:no-repeat;/*图片适应窗口大小，这里设置的是不进行平铺*/
+				background-attachment: fixed;/*图片相对于浏览器固定,这里设置背景图片固定，不随内容滚动*/
+				background-origin: border-box;/*从边框区域显示*/
+				background-size:cover;/*指定图片大小，此时会保持图像的纵横比并将图像缩放成将完全覆盖背景定位区域的最小大小*/
+				height:100%;
+				width: 100%;
+			}
+		</style>
+	</head>
+	<body class="bg">
+
+		<!-- login top center-->
+		<div class="bg" >
+			<div class="logo center">
+				<a href="./index.html" target="_blank"><img src="../js/image/mistore_logo.png" alt=""></a>
+			</div>
+		</div>
+		<form  method="post" id="loginForm"  class="form center">
+		<div class="login">
+			<div class="login_center">
+				<div class="login_top">
+					<div class="left fl">登陆</div>
+					<div class="right fr">您还不是我们的用户？<a href="../tz/zhuche" target="_self">立即注册</a></div>
+					<div class="clear"></div>
+					<div class="xian center"></div>
+				</div>
+				<div class="login_main center">
+					<div class="username">用户名:&nbsp;<input class="shurukuang" type="text" name="userAccount" placeholder="账号或者手机号快速登陆"/></div>
+					<div class="username">密&nbsp;&nbsp;&nbsp;&nbsp;码:&nbsp;<input class="shurukuang" type="password" name="userPasw" placeholder="请输入你的密码"/></div>
+					<div class="username">
+						<div class="left fl">
+
+							验证码:&nbsp;<input class="yanzhengma" type="text" name="code" placeholder="请输入验证码"/>
+
+							<img id="refreshCode" src="../user/gainCode" height="43px" width="100px">
+							<a href="javascript:next()">换一张</a>
+						</div>
+						</div>
+						<div class="right fl">
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div class="login_submit">
+
+					<input class="submit"  type="button" onclick="login()" value="登录" >
+				</div>
+			</div>
+		</div>
+		</form>
+		<footer style="background-color: burlywood;height: 40px">
+			<div class="copyright">简体 | 繁体 | English | 常见问题</div>
+			<div class="copyright">1906B 一组</div>
+		</footer>
+	</body>
+
+<script>
+
+	/**
+	 * 更换验证码
+	 */
+	/*加上时间戳来重复请求验证码函数  */
+	function next(){
+		$('#refreshCode').attr('src', '../user/gainCode?t=' + new Date().getTime());
+	}
+
+	//登录
+	function login(){
+		$.ajax({
+			url:"../user/login",
+			type:"GET",
+			data:$("#loginForm").serialize(),
+			success:function (data) {
+
+				if (data == "登录成功！"){
+
+					location.href="../tz/MinShuShouYe";
+				}else {
+					alert(data)
+				}
+			}
+		})
+	}
+
+</script>
+</html>

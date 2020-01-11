@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap3/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../js/bootstrap3/css/bootstrap.css" />
+
+
+    <script src="../js/bootstrap-table/bootstrap-table.js"></script>
+    <script src="../js/bootstrap-table/locale/bootstrap-table-zh-CN.js"></script>
+    <link rel="stylesheet" href="../js/bootstrap-table/bootstrap-table.css"/>
+
+    <script src="../js/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+    <script src="../js/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+    <link rel="stylesheet" href="../js/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css"/>
+
+    <!-- 引入弹框的js -->
+    <script src="../js/bootstrap-bootbox/bootbox.js"></script>
+
+
+    <link rel="stylesheet" href="../js/bootstrap-fileinput/css/fileinput.css"/>
+    <script src="../js/bootstrap-fileinput/js/fileinput.js"></script>
+    <script src="../js/bootstrap-fileinput/js/locales/zh.js"></script>
+
+</head>
+<body>
+            <span id="fang-img"></span>
+
+            <div class="collapse navbar-collapse" style="background-color: darksalmon" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="#features" class="page-scroll">房屋详情</a></li>
+                    <li><a href="#jicss" class="page-scroll">房间设施</a></li>
+                    <li><a href="#kedingDate" class="page-scroll">可定日期</a></li>
+                    <li><a href="#team" class="page-scroll">房东信息</a></li>
+                    <li><a href="#team" class="page-scroll">位置</a></li>
+                </ul>
+            </div>
+
+
+            <div class="row" style="margin-left: 10px;">
+
+                <!--左-->
+                <div class="col-md-8" style="height: 300px">
+
+                    <!--房屋详情-->
+                    <div id="features" class="text-left" style="margin-left: 30px;">
+                        <div class="container">
+                            <div class="intro-text text-primary">
+                                <h3>房屋详情</h3>
+                            </div>
+                            <div style="margin-left: 30px">
+                                <div style="width: 400px;">
+                                    <span id="loginzt" th:text="${session.fang.fangAddress}"></span>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                                        <span id="loginzt" th:text="${session.fang.fangRZdate}"></span>
+                                </div>
+                                <div style="width: 400px;">
+                                    <h2><span id="loginzt" th:text="${session.fang.fangName}"></span></h2>
+                                </div>
+                                <div style="width: 600px;">
+                                    <h4><span id="loginzt" th:text="${session.fang.fangInfo}"></span></h4>
+                                </div>
+                                <div style="width: 600px;" class="text-danger">
+                                    </font><span id="loginzt" th:text="${session.fang.fangAddInfo}"></span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!--房屋基础设施-->
+                    <div class="text-left" style="margin-left: 30px;">
+                        <div class="container">
+                            <div class="intro-text text-primary">
+                                <h3>房屋基础设施</h3>
+                            </div>
+                            <div style="margin-left: 30px">
+                                <div style="width: 600px;">
+
+                                    <button type="button" class="btn btn-primary glyphicon glyphicon-home"> <span id="loginzt" th:text="${session.fang.fangWoShi}"></span>  个卧室</button>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <button type="button" class="btn btn-success glyphicon glyphicon-home"> <span id="loginzt" th:text="${session.fang.fangChaung}"></span>  个床</button>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <button type="button" class="btn btn btn-info glyphicon glyphicon-home"> <span id="loginzt" th:text="${session.fang.fangWC}"></span>  个卫生间</button>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <button type="button" class="btn btn-warning glyphicon glyphicon glyphicon-user">   最多住  <span id="loginzt" th:text="${session.fang.fangRenShu}"></span> 人</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div id="jicss"></div>  <!--页面 定位 -->
+
+                    <!--可定日期-->
+                    <div  class="text-left" style="margin-left: 30px;">
+                        <div class="container">
+                            <div class="intro-text text-primary">
+                                <h3>可定日期</h3>
+                            </div>
+                            <div style="margin-left: 30px">
+                                <div style="width: 400px;">
+                                    <span id="loginzt" th:text="${session.fang.fangAddress}"></span>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                                    <span id="loginzt" th:text="${session.fang.fangRZdate}"></span>
+                                </div>
+                                <div style="width: 400px;">
+                                    <h2><span id="loginzt" th:text="${session.fang.fangName}"></span></h2>
+                                </div>
+                                <div style="width: 600px;">
+                                    <h4><span id="loginzt" th:text="${session.fang.fangInfo}"></span></h4>
+                                </div>
+                                <div style="width: 600px;" class="text-danger">
+                                    </font><span id="loginzt" th:text="${session.fang.fangAddInfo}"></span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div id="kedingDate"></div>
+
+                    <!--房东信息-->
+                    <div  class="text-left" style="margin-left: 30px;">
+                        <div class="container">
+                            <div class="intro-text text-primary">
+                                <h3>房东信息</h3>
+                            </div>
+                            <div style="margin-left: 30px">
+                                <div style="width: 400px;">
+
+                                    内容
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <!--==========================================================================-->
+
+                <!--右-->
+                <div class="col-md-4" style="background-color: aliceblue;height: 300px"></div>
+            </div>
+</body>
+<script>
+
+    $(function () {
+
+        initFangImg();
+    })
+
+    // 房间图片
+    function initFangImg() {
+        $.ajax({
+            url:"../user/queryFangImg",
+            type:"GET",
+            success:function (data) {
+                var fangimg = "";
+                    fangimg +=
+                            '<div class="row" style="background-color: darkorange; height: 334px">'+
+
+                                '<div class="col-md-6" style="height:300px">'+
+                                    /*主*/
+                                '<img src="'+data[0]+'" style="height:334px;width:104%;display: block">'+
+                                '</div>'+
+                                '<div class="col-md-6" style=";height:300px">'+
+
+                                '<div class="row" style="height: 300px">'+
+                                '<div class="col-md-6" style="width:50%;height:50%">'+
+                                    /*副*/
+                                '<img src="'+data[1]+'" style="height:180px;width:108%;height: 100%;display: block">'+
+                                '</div>'+
+                                '<div class="col-md-6" style="width:50%;height:50%">'+
+                                    /*副*/
+                                '<img src="'+data[2]+'" style="height:180px;width:100%;height: 100%;display: block">'+
+                                    '</div>'+
+
+                                '<div class="col-md-6" style="width:50%;height:50%">'+
+                                    /*副*/
+                                '<img src="'+data[3]+'" style="height:183px;width:108%;display: block;;margin-top: 2px">'+
+                                '</div>'+
+
+                                '<div class="col-md-6" style="width:50%;height:50%">'+
+                                    /*副*/
+                                '<img src="'+data[4]+'" style="height:183px;width:100%;display: block;margin-top: 2px">'+
+                                '</div>'+
+                                '</div>'+
+                                '</div>'+
+                                '</div>'
+
+                $("#fang-img").html(fangimg)
+            }
+        })
+    }
+
+
+
+
+
+</script>
+</html>
