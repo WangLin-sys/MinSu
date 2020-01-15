@@ -11,6 +11,7 @@ import com.jk.util.HttpClientUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -90,7 +91,7 @@ public class UserServiceImpl implements UserService {
 //            HashMap<String, Object> params = new HashMap<String, Object>();
 //
 //            params.put("mobile", userPhone);//手机号
-//            params.put("templateid", 14828069);//模板编号(如不指定则使用配置的默认模版)
+//            params.put("templateid", 14843179);//模板编号(如不指定则使用配置的默认模版)
 //            params.put("authCode", round);//客户自定义验证码，长度为4～10个数字
 //
 //            //放header中的公共参数
@@ -133,6 +134,10 @@ public class UserServiceImpl implements UserService {
         return userMapper.queryUserAccount(userAccount);
     }
 
+    /**
+     * 主页面 推荐
+     * @return
+     */
     @Override
     public HashMap<String, Object> Fangtuijian() {
 
@@ -155,6 +160,30 @@ public class UserServiceImpl implements UserService {
 
         List<String> FangImg = userMapper.queryFangImg(fangId);
         return FangImg;
+    }
+    /**
+     *  用户信息展示
+     * @param request
+     * @return
+     */
+    @Override
+    public UserModel userxinxi(Integer userId) {
+
+        return userMapper.userxinxi(userId);
+    }
+    /**
+     *  修改 名称
+     */
+    @Override
+    public void updateUser(String userxiugai, String usersize,Integer userId) {
+
+        if(usersize.equals("昵称")){
+            userMapper.updateNiCheng(userxiugai,userId);
+        }else if(usersize.equals("Mail")){
+            userMapper.updateMail(userxiugai,userId);
+        }else if(usersize.equals("Phone")){
+            userMapper.updatePhone(userxiugai,userId);
+        }
     }
 
 

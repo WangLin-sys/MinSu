@@ -30,6 +30,8 @@
         SELECT f.fangId,f.fangImg,f.fangAddress,f.fangInfo,f.fangName,f.fangPrice
             FROM fangjianinfo f
             order by f.fangScore
+
+
             desc LIMIT 0,6
     </select>
 
@@ -43,6 +45,29 @@
     <!-- 根据房子ID 查询图片-->
     <select id="queryFangImg" resultType="String">
         SELECT i.aimg FROM t_img i where i.tid = #{value}
+    </select>
+
+    <!--个人中心 用户信息 -->
+    <select id="userxinxi" resultType="com.jk.model.UserModel">
+
+        SELECT * FROM msuser u where u.userId = #{value}
+    </select>
+
+
+    <!--个人中心 修改 NiCheng -->
+    <select id="updateNiCheng" resultType="com.jk.model.UserModel">
+
+        UPDATE msuser u set u.userNiCheng =#{userxiugai} WHERE u.userId =#{userId}
+    </select>
+    <!--个人中心 修改 Mail -->
+    <select id="updateMail" resultType="com.jk.model.UserModel">
+
+        UPDATE msuser u set u.userMail =#{userxiugai}  WHERE u.userId =#{userId}
+    </select>
+    <!--个人中心 修改 Phone -->
+    <select id="updatePhone" resultType="com.jk.model.UserModel">
+
+        UPDATE msuser u set u.userPhone =#{userxiugai}  WHERE u.userId =#{userId}
     </select>
 
 </mapper>

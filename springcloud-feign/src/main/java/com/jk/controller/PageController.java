@@ -38,7 +38,7 @@ public class PageController {
     }
 
     /**
-     * @return   去 登陆页面
+     * @return   去 首页
      */
     @RequestMapping("MinShuShouYe")
     public String MinShuShouYe(HttpServletRequest request){
@@ -88,6 +88,14 @@ public class PageController {
         return "UserHtml/userGeRenXinXI";
     }
 
+    /**
+     *  地图
+     * @return
+     */
+    @RequestMapping("contact")
+    public String contact(){
 
+        return "contact";
+    }
 
 }

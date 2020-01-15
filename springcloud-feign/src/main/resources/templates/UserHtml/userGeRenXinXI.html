@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -38,13 +38,211 @@
 
 <body class="bg">
 
-    <div style="margin-left: 30px;background-color: cadetblue;width: 80%;height:80%">
+    <input type="hidden" id="userId" th:value="${session.user.userId}">
+
+    <div style="margin-left: 100px;width: 80%;height:80%">
+
+        <div style="line-height: 48px;background-color: cadetblue;margin-left: 50px;width: 80%;height: 50px;margin-top: 20px;">
+            <div class="row">
+                <div class="col-md-3">
+                    <h3>昵称:</h3>
+                </div>
+                <div class="col-md-7" >
+                    <h3><span id="userNiCheng"></span></h3>
+                </div>
+                <div class="col-md-2">
+                    <button type="button" onclick="updateNiCheng()" id="btn-NiCheng1" class="btn btn-primary ">更换昵称</button>
+                    <button type="button" onclick="okUserNiCheng()"  id="btn-NiCheng2" class="btn btn-primary ">确定修改</button>
+                </div>
+            </div>
+        </div>
+        <div style="line-height: 48px;background-color: cadetblue;margin-left: 50px;width: 80%;height: 50px;margin-top: 20px;">
+
+            <div class="row">
+                <div class="col-md-3">
+                    <h3>账号:  </h3>
+                </div>
+                <div class="col-md-7" >
+                    <h3><span id="userAccount"></span></h3>
+                </div>
+            </div>
+        </div>
+        <div style="line-height: 48px;background-color: cadetblue;margin-left: 50px;width: 80%;height: 50px;margin-top: 20px;">
 
 
+            <div class="row">
+                <div class="col-md-3">
+                    <h3>绑定手机号:</h3>
+                </div>
+                <div class="col-md-7" >
+                    <h3> <span id="userPhone"></span></h3>
+                </div>
+                <div class="col-md-2" >
+                    <button type="button" onclick="updatePhone()" id="btn-phone1" class="btn btn-primary ">更换绑定手机号</button>
+                    <button type="button" onclick="okUserPhone()"  id="btn-phone2" class="btn btn-primary ">确定修改</button>
+                </div>
+            </div>
+        </div>
+        <div style="line-height: 48px;background-color: cadetblue;margin-left: 50px;width: 80%;height: 50px;margin-top: 20px;">
 
+            <div class="row">
+                <div class="col-md-3">
+                    <h3>绑定邮箱:</h3>
+                </div>
+                <div class="col-md-7" >
+                    <h3><span id="userMail"></span></h3>
+                </div>
+                <div class="col-md-2">
+                    <button type="button" onclick="updateMail()" id="btn-Mail1" class="btn btn-primary ">更换绑定邮箱</button>
+                    <button type="button" onclick="okUserMail()" id="btn-Mail2" class="btn btn-primary ">确定修改</button>
+                </div>
+            </div>
+
+        </div>
+        <div style="line-height: 48px;background-color: cadetblue;margin-left: 50px;width: 80%;height: 50px;margin-top: 20px;">
+
+            <div class="row">
+                <div class="col-md-3">
+                    <h3>账号时间</h3>
+                </div>
+                <div class="col-md-8" >
+                    <h3><span id="userzhucheDate"></span></h3>
+                </div>
+            </div>
+
+        </div>
     </div>
 
-
-
 </body>
+
+<script>
+
+    $(function () {
+
+        initUserxinxi();
+        initzt();
+    })
+
+    /*默认隐藏*/
+    initzt = function(){
+
+        document.getElementById('btn-Mail2').style.display="none";
+        document.getElementById('btn-phone2').style.display="none";
+        document.getElementById('btn-NiCheng2').style.display="none";
+    }
+
+    okUserNiCheng = function(){
+
+        var userxiugai = $("#userxiugai").val();
+        alert(userxiugai)
+        $.ajax({
+            url:"../user/updateUser",
+            data:{userxiugai:userxiugai,usersize:"昵称"},
+            success:function () {
+
+                document.getElementById('btn-Mail2').style.display="none";
+                location.href="../tz/userGeRenXinXI";
+            }
+        })
+    }
+
+    /*点击确定 Mail 修改*/
+    okUserMail = function(){
+        var userxiugai = $("#userxiugai").val();
+        alert(userxiugai)
+
+        $.ajax({
+            url:"../user/updateUser",
+            data:{userxiugai:userxiugai,usersize:"Mail"},
+            success:function () {
+
+                document.getElementById('btn-Mail2').style.display="none";
+                location.href="../tz/userGeRenXinXI";
+            }
+        })
+
+    }
+
+    /*点击确定Phone 修改*/
+    okUserPhone = function(){
+        var userxiugai = $("#userxiugai").val();
+        alert(userxiugai)
+
+        $.ajax({
+            url:"../user/updateUser",
+            data:{userxiugai:userxiugai,usersize:"Phone"},
+            success:function () {
+
+                document.getElementById('btn-phone2').style.display="none";
+                location.href="../tz/userGeRenXinXI";
+            }
+        })
+
+    }
+
+    // updateAccount
+    updateNiCheng = function(){
+
+        var input ="<input type=\"text\" id=\"userxiugai\" size=\"20px\" name=\"userNiCheng\" class=\"form-last-name form-control\">";
+        $("#userNiCheng").html(input);
+        document.getElementById('btn-NiCheng1').style.display="none";
+        document.getElementById('btn-NiCheng2').style.display="";
+    }
+
+    // updateMail
+    updateMail = function(){
+
+        var input ="<input type=\"text\" id=\"userxiugai\" size=\"20px\" name=\"userMail\" class=\"form-last-name form-control\">";
+        $("#userMail").html(input);
+        document.getElementById('btn-Mail1').style.display="none";
+        document.getElementById('btn-Mail2').style.display="";
+    }
+
+    // updatePhone
+    updatePhone = function(){
+
+            var input ="<input type=\"text\" id=\"userxiugai\" size=\"20px\"  name=\"userPhone\" class=\"form-last-name form-control\">";
+            $("#userPhone").html(input);
+            document.getElementById('btn-phone1').style.display="none";
+            document.getElementById('btn-phone2').style.display="";
+    }
+
+
+
+    // 初USER始化数据
+    initUserxinxi = function () {
+
+        $.ajax({
+
+            url:"../user/userxinxi",
+            success:function (data) {
+
+                $("#userNiCheng").html(data.userNiCheng);
+                $("#userAccount").html(data.userAccount);
+                $("#userPhone").html(data.userPhone);
+                $("#userMail").html(data.userMail);
+                $("#userImg").html(data.userImg);
+                // 系统时间
+                var mydate = new Date();
+                mydate.toLocaleDateString();
+                var sysdate = mydate.getTime();
+
+// 获取参加工作时间
+                var date = data.userzhucheDate;
+
+// 处理String  转换 毫秒值====================
+                var newdate =  date.replace(new RegExp("-","gm"),"/");
+// starttimeHaoMiao 毫秒值
+                var starttimeHaoMiao = (new Date(newdate)).getTime();
+// 转换单位 为  天
+                var arguments = (sysdate - starttimeHaoMiao)/1000/60/60/24;
+//  Math.round(四舍五入)
+                var data = Math.round(arguments);
+
+                $("#userzhucheDate").html(data +"天");
+            }
+        })
+    }
+
+</script>
 </html>

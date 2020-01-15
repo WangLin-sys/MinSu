@@ -38,4 +38,16 @@ public interface UserServer {
     // 推荐详细信息图片
     @GetMapping("user/queryFangImg")
     List<String> queryFangImg(@RequestParam("fangId") Integer fangId);
+
+    /**
+     *  用户信息展示
+     */
+    @GetMapping("user/userxinxi")
+    UserModel userxinxi(@RequestParam("userId")Integer userId);
+
+    /**
+     *  修改 名称
+     */
+    @GetMapping("user/updateUser")
+    void updateUser(@RequestParam("userxiugai") String userxiugai,@RequestParam("usersize") String usersize,@RequestParam("userId") Integer userId);
 }

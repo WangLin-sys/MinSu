@@ -9,6 +9,7 @@ public class UserModel {
     private String  userPhone;      // 手机号
     private String  userMail;       // 邮箱
     private String  userzhucheDate; // 注册日期
+    private String  userImg;        // 头像
 
     private Integer AccountStatus;  // 账户状态
 
@@ -19,6 +20,14 @@ public class UserModel {
     // 验证码
     private String code;
 
+
+    public String getUserImg() {
+        return userImg;
+    }
+
+    public void setUserImg(String userImg) {
+        this.userImg = userImg;
+    }
 
     public String getCode() {
         return code;

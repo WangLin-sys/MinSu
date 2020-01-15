@@ -87,5 +87,27 @@ public class UserController implements UserServer {
         return userService.queryFangImg(fangId);
     }
 
+    /**
+     *  用户信息展示
+     * @param request
+     * @return
+     */
+    @GetMapping("userxinxi")
+    @Override
+    public UserModel userxinxi(Integer userId) {
+
+        return userService.userxinxi(userId);
+    }
+
+    /**
+     *  修改 名称
+     */
+    @GetMapping("updateUser")
+    @Override
+    public void updateUser(String userxiugai, String usersize,Integer userId) {
+
+        userService.updateUser(userxiugai,usersize,userId);
+    }
+
 
 }

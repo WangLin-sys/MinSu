@@ -19,4 +19,8 @@ public interface UserService {
     FangJianModel tuijianxianqing(Integer fangId);
 
     List<String> queryFangImg(Integer fangId);
+
+    UserModel userxinxi(Integer userId);
+
+    void updateUser(String userxiugai, String usersize,Integer userId);
 }

@@ -74,6 +74,18 @@ public class UserController {
     }
 
     /**
+     * 注销 账号
+     * @param request
+     */
+    @GetMapping("zhuxiao")
+    public String login(HttpServletRequest request){
+        request.getSession().removeAttribute("user");
+
+        return "redirect:/tz/MinShuShouYe";
+    }
+
+
+    /**
      * 注册
      * @param  userModel
      * @return
@@ -127,6 +139,43 @@ public class UserController {
         Integer fangId = fang.getFangId();
         List<String> imgUil = userService.queryFangImg(fangId);
         return imgUil;
+    }
+
+    /**
+     *  用户信息展示
+     * @param request
+     * @return
+     */
+    @GetMapping("userxinxi")
+    @ResponseBody
+    public UserModel userxinxi(HttpServletRequest request){
+        UserModel user = (UserModel) request.getSession().getAttribute("user");
+        Integer userId = user.getUserId();
+        UserModel userModel = userService.userxinxi(userId);
+        return userModel;
+    }
+
+    /**
+     * 修改 名称
+     * @param userxiugai
+     * @param usersize
+     */
+    @GetMapping("updateUser")
+    @ResponseBody
+    public void updateUser(String userxiugai,String usersize,HttpServletRequest request){
+
+        UserModel user = (UserModel) request.getSession().getAttribute("user");
+        Integer userId = user.getUserId();
+
+        userService.updateUser(userxiugai,usersize,userId);
+    }
+
+    // 房屋详情 可订 日期
+    @PostMapping("yudingdate")
+    public String yudingdate(String startDate,String endDate,Integer NumDate){
+
+        System.out.println();
+        return "";
     }
 
 
