@@ -23,4 +23,6 @@ public interface UserService {
     UserModel userxinxi(Integer userId);
 
     void updateUser(String userxiugai, String usersize,Integer userId);
+
+    UserModel queryFangZhuXX(String fangId);
 }

@@ -108,6 +108,16 @@ public class UserController implements UserServer {
 
         userService.updateUser(userxiugai,usersize,userId);
     }
+    /**
+     * 查询 房屋房东信息
+     * @param fangId 房Id
+     * @return
+     */
+    @GetMapping("queryFangZhuXX")
+    @Override
+    public UserModel queryFangZhuXX(String fangId) {
+        return userService.queryFangZhuXX(fangId);
+    }
 
 
 }

@@ -69,5 +69,13 @@
 
         UPDATE msuser u set u.userPhone =#{userxiugai}  WHERE u.userId =#{userId}
     </select>
+    <!--房屋详情  查询 房屋房东信息-->
+    <select id="queryFangZhuXX" resultType="com.jk.model.UserModel">
+
+        SELECT * FROM msuser u
+            where u.userId =
+                (SELECT f.fangUserId FROM fangjianinfo f where f.fangId = #{fangId})
+
+    </select>
 
 </mapper>

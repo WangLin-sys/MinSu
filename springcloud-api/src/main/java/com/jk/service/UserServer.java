@@ -50,4 +50,11 @@ public interface UserServer {
      */
     @GetMapping("user/updateUser")
     void updateUser(@RequestParam("userxiugai") String userxiugai,@RequestParam("usersize") String usersize,@RequestParam("userId") Integer userId);
+    /**
+     * 查询 房屋房东信息
+     * @param fangId 房Id
+     * @return
+     */
+    @GetMapping("user/queryFangZhuXX")
+    UserModel queryFangZhuXX(@RequestParam("fangId") String fangId);
 }

@@ -170,12 +170,25 @@ public class UserController {
         userService.updateUser(userxiugai,usersize,userId);
     }
 
-    // 房屋详情 可订 日期
+    // 房屋详情 可订 日期 功能未写
     @PostMapping("yudingdate")
     public String yudingdate(String startDate,String endDate,Integer NumDate){
 
         System.out.println();
         return "";
+    }
+
+
+    /**
+     * 查询 房屋房东信息
+     * @param fangId 房Id
+     * @return
+     */
+    @GetMapping("queryFangZhuXX")
+    @ResponseBody
+    public UserModel queryFangZhuXX(String fangId){
+
+        return  userService.queryFangZhuXX(fangId);
     }
 
 

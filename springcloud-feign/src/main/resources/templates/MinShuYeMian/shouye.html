@@ -134,14 +134,14 @@
           /*图片*/
           initUserimg = function () {
             document.getElementById('zhuxiao').style.display="none";
-            var message = "[[${session.user.userNiCheng}]]";
+            var userNiCheng = "[[${session.user.userNiCheng}]]";
             var uil = "[[${session.user.userImg}]]";
-            if(message!= "未登录"){
+            if(userNiCheng != "未登录"){
               document.images.userimgzdy.src= uil;
-              var login = ' <a href="../tz/userZhongXin"  class="page-scroll"><font color="#7fff00">message</font></a>';
+              var login = ' <a href="../tz/userZhongXin"  class="page-scroll"><font color="#7fff00">userNiCheng</font></a>';
               document.getElementById('zhuxiao').style.display="";
-              document.getElementById('zhu-login').style.display="none";
-              document.getElementById('zhu-zhuche').style.display="none";
+             // document.getElementById('zhu-login').style.display="none";
+             // document.getElementById('zhu-zhuche').style.display="none";
             }else{
               document.images.userimgzdy.src= "../usergeren/images/avatar.png";
               var login = ' <a href="../tz/login1" class="page-scroll"><font color="#7fff00">点击登陆</font></a>';

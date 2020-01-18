@@ -308,20 +308,87 @@
 
 
                     <!--房东信息--><div id="fangzhu-xx"></div> <!--页面 定位 -->
-                    <div  class="text-left" style="margin-left: 30px;height: 300px">
+                    <div  class="text-left" style="margin-left: 30px;height: 400px">
                         <div class="container">
                             <div class="intro-text text-primary">
                                 <h3>房东信息</h3>
                             </div>
                             <div style="margin-left: 30px">
-                                <div style="width: 400px;">
 
-                                    内容
-                                </div>
+                                    <div style=" width: 1000px;margin-top: 30px">
+                                        <h3> <img  id="userimgzdy" style="width: 80px;height: 80px" class="layui-nav-img">
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        房东：  <span id="userNiCheng"></span>
+                                        </h3>
+                                    </div>
+
+                                    <div style=" width: 1000px;margin-left: 500px;margin-top: 0px">
+                                        <a href="javascript:kksync()">点击联系房主</a>
+                                    </div>
+
+                                    <div id="textareaId" style=" width: 1000px ;margin-top: 30px">
+                                        <form id="huifu">
+                                            <div class="col-md-9">
+                                                <textarea class="form-control" name="fdInfo" rows="4" cols="5" placeholder="可直接跟房租联系"></textarea>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div style="margin-top: 60px">
+                                                    <button type="button" onclick="javascript:lianxifangzhu()" class="btn btn-sm btn-success glyphicon glyphicon-ok" >  发送</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                    <script>
+                                        kksync = function () {
+                                            document.getElementById('textareaId').style.display="";
+                                        }
+
+                                        lianxifangzhu = function () {
+
+                                            alert($("#huifu").serialize())
+                                            $("#huifu").val("")
+                                            // $.ajax({
+                                            //     url: "../user/queryFangZhuXX",
+                                            //     type: "GET",
+                                            //     data:{fangId:fangId},
+                                            //     success:function(data) {
+                                            //         document.images.userimgzdy.src= data.userImg;
+                                            //         $("#userNiCheng").html(data.userNiCheng)
+                                            //     }
+                                            // })
+                                        }
+                                    </script>
                             </div>
 
                         </div>
                     </div>
+                    <!--查询房东信息-->
+                    <script>
+                        $(function () {
+
+                            initFangDongXX();
+                        })
+                        initFangDongXX = function () {
+                            document.getElementById('textareaId').style.display="none";
+                            var fangId = "[[${session.fang.fangId}]]";
+
+                            $.ajax({
+                                url: "../user/queryFangZhuXX",
+                                type: "GET",
+                                data:{fangId:fangId},
+                                success:function(data) {
+                                    document.images.userimgzdy.src= data.userImg;
+                                    $("#userNiCheng").html(data.userNiCheng)
+                                }
+                            })
+                        }
+
+
+                    </script>
+
+
+
 
                     <!--地理位置--><div id="weizhi-dt"></div> <!--页面 定位 -->
                     <div  class="text-left" style="margin-left: 30px;height: 200px">

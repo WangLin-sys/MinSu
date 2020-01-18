@@ -186,5 +186,16 @@ public class UserServiceImpl implements UserService {
         }
     }
 
+    /**
+     * 查询 房屋房东信息
+     * @param fangId 房Id
+     * @return
+     */
+    @Override
+    public UserModel queryFangZhuXX(String fangId) {
+
+        return userMapper.queryFangZhuXX(fangId);
+    }
+
 
 }

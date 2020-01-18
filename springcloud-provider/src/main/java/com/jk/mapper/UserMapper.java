@@ -40,6 +40,10 @@ public interface UserMapper {
     // 修改 Phone
     void updatePhone(@Param("userxiugai")String userxiugai,@Param("userId")  Integer userId);
 
-
-
+    /**
+     * 查询 房屋房东信息
+     * @param fangId 房Id
+     * @return
+     */
+    UserModel queryFangZhuXX(@Param("fangId") String fangId);
 }
