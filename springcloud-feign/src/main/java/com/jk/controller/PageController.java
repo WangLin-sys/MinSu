@@ -89,6 +89,16 @@ public class PageController {
     }
 
     /**
+     * @return 基本资料页面
+     */
+    @RequestMapping("jibenzhiliao")
+    public String jibenzhiliao(){
+
+        return "UserHtml/jibenzhiliao";
+    }
+
+
+    /**
      *  地图
      * @return
      */

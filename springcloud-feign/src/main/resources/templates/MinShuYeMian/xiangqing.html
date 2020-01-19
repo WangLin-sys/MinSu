@@ -137,6 +137,7 @@
                     <li><a href="#kedingDate" class="page-scroll">可定日期</a></li>
                     <li><a href="#fangzhu-xx" class="page-scroll">房东信息</a></li>
                     <li><a href="#weizhi-dt" class="page-scroll">位置</a></li>
+                    <li><a href="#pinglun-pl" class="page-scroll">查看评论</a></li>
                 </ul>
             </div>
 
@@ -391,22 +392,214 @@
 
 
                     <!--地理位置--><div id="weizhi-dt"></div> <!--页面 定位 -->
-                    <div  class="text-left" style="margin-left: 30px;height: 200px">
+                    <div  class="text-left" style="margin-left: 30px;height: 500px">
                         <div class="container">
                             <div class="intro-text text-primary">
                                 <h3>房屋地理位置</h3>
                             </div>
                             <div style="margin-left: 30px">
 
-                                <div id="allmap" style="width:766px; height:399px"></div>
+                                <div id="allmap" style="margin-top: 40px;width:900px; height:399px"></div>
 
                             </div>
 
                         </div>
                     </div>
 
+                <!--评论js-->
+                    <link rel="stylesheet" type="text/css" href="../pl/css/bootstrap.css">
+                    <style>
+                        .container{
+                            width: 1000px;
+                        }
+                        .commentbox{
+                            width: 900px;
+                            margin: 20px auto;
+                        }
+                        .mytextarea {
+                            width: 100%;
+                            overflow: auto;
+                            word-break: break-all;
+                            height: 100px;
+                            color: #000;
+                            font-size: 1em;
+                            resize: none;
+                        }
+                        .comment-list{
+                            width: 900px;
+                            margin: 20px auto;
+                            clear: both;
+                            padding-top: 20px;
+                        }
+                        .comment-list .comment-info{
+                            position: relative;
+                            margin-bottom: 20px;
+                            margin-bottom: 20px;
+                            border-bottom: 1px solid #ccc;
+                        }
+                        .comment-list .comment-info header{
+                            width: 10%;
+                            position: absolute;
+                        }
+                        .comment-list .comment-info header img{
+                            width: 100%;
+                            border-radius: 50%;
+                            padding: 5px;
+                        }
+                        .comment-list .comment-info .comment-right{
+                            padding:5px 0px 5px 11%;
+                        }
+                        .comment-list .comment-info .comment-right h3{
+                            margin: 5px 0px;
+                        }
+                        .comment-list .comment-info .comment-right .comment-content-header{
+                            height: 25px;
+                        }
+                        .comment-list .comment-info .comment-right .comment-content-header span,.comment-list .comment-info .comment-right .comment-content-footer span{
+                            padding-right: 2em;
+                            color: #aaa;
+                        }
+                        .comment-list .comment-info .comment-right .comment-content-header span,.comment-list .comment-info .comment-right .comment-content-footer span.reply-btn,.send,.reply-list-btn{
+                            cursor: pointer;
+                        }
+                        .comment-list .comment-info .comment-right .reply-list {
+                            border-left: 3px solid #ccc;
+                            padding-left: 7px;
+                        }
+                        .comment-list .comment-info .comment-right .reply-list .reply{
+                            border-bottom: 1px dashed #ccc;
+                        }
+                        .comment-list .comment-info .comment-right .reply-list .reply div span{
+                            padding-left: 10px;
+                        }
+                        .comment-list .comment-info .comment-right .reply-list .reply p span{
+                            padding-right: 2em;
+                            color: #aaa;
+                        }
+                    </style>
+
+                    <!--评论详情--><div id="pinglun-pl"></div> <!--页面 定位 -->
+                    <div  class="text-left" style="margin-left: 50px;height: 200px">
+                        <div class="container">
+                            <div class="intro-text text-primary">
+                                <h3>房屋评论</h3>
+                            </div>
+                            <div style="margin-left: 50px">
+
+                                <div style="width:766px; height:399px">
 
 
+                                    <script src="../pl/demos/googlegg.js"></script>
+
+                                    <div class="container">
+                                        <div class="commentbox">
+
+                                            <textarea cols="80" rows="50" placeholder="来说几句吧......" class="mytextarea" id="content"></textarea>
+                                            <button class="btn btn-info pull-right" id="comment">发布评论</button>
+<!--
+                                            <div class="btn btn-info pull-right" id="comment">评论</div>
+-->
+                                        </div>
+                                        <div class="comment-list">
+                                            <!--
+                                                <div class="comment-info">
+                                                    <header><img src="./images/img.jpg"></header>
+                                                    <div class="comment-right">
+                                                        <h3>匿名</h3>
+                                                        <div class="comment-content-header"><span><i class="glyphicon glyphicon-time"></i> 2017-10-17 11:42:53</span><span><i class="glyphicon glyphicon-map-marker"></i>深圳</span></div>
+                                                        <p class="content">mongodb 副本集配置副本集概念：就我的理解就是和主从复制 差不多，就是在主从复制的基础上多加了一个选举的机制。
+                                                        复制集 特点：数据一致性 主是唯一的，没有Mysql 那样的双主结构大多数原则，集群存活节点小于二分之一是集群不可写，
+                                                        只可读从库无法写入数据自动容灾通过下面的一个图来简单的了解下
+                                                         配置过程：一、安装mongodb安装过程略，不懂得可以看前面的教程二、创建存储目录与配置文件创...</p>
+                                                        <div class="comment-content-footer">
+                                                            <div class="row">
+                                                                <div class="col-md-10">
+                                                                    <span><i class="glyphicon glyphicon-pushpin"></i> 来自:win10 </span><span><i class="glyphicon glyphicon-globe"></i> chrome 55.0.2883.87</span>
+                                                                </div>
+                                                                <div class="col-md-2"><span class="reply-btn">回复</span></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="reply-list"></div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="comment-info">
+                                                    <header><img src="./images/img.jpg"></header>
+                                                    <div class="comment-right">
+                                                        <h3>匿名</h3>
+                                                        <div class="comment-content-header"><span><i class="glyphicon glyphicon-time"></i> 2017-10-17 11:42:53</span><span><i class="glyphicon glyphicon-map-marker"></i>深圳</span></div>
+                                                        <p class="content">mongodb 副本集配置副本集概念：就我的理解就是和主从复制 差不多，就是在主从复制的基础上多加了一个选举的机制。
+                                                        复制集 特点：数据一致性 主是唯一的，没有Mysql 那样的双主结构大多数原则，集群存活节点小于二分之一是集群不可写，
+                                                        只可读从库无法写入数据自动容灾通过下面的一个图来简单的了解下
+                                                         配置过程：一、安装mongodb安装过程略，不懂得可以看前面的教程二、创建存储目录与配置文件创...</p>
+                                                        <div class="comment-content-footer">
+                                                            <div class="row">
+                                                                <div class="col-md-10">
+                                                                    <span><i class="glyphicon glyphicon-pushpin"></i> 来自:win10 </span><span><i class="glyphicon glyphicon-globe"></i> chrome 55.0.2883.87</span>
+                                                                </div>
+                                                                <div class="col-md-2"><span class="reply-btn">回复</span></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="reply-list">
+                                                            <div class="reply">
+                                                                <div><a href="javascript:void(0)">匿名</a>:<a href="javascript:void(0)">@匿名</a><span>这写的是什么鬼东西。。。。</span></div>
+                                                                <p><span>2017-10-17 11:42:53</span> <span class="reply-list-btn">回复</span></p>
+                                                            </div>
+                                                            <div class="reply">
+                                                                <div><a href="javascript:void(0)">匿名</a>:<a href="javascript:void(0)">@匿名</a><span>这写的是什么鬼东西。。。。</span></div>
+                                                                <p><span>2017-10-17 11:42:53</span> <span class="reply-list-btn">回复</span></p>
+                                                            </div>
+                                                            <div class="reply">
+                                                                <div><a href="javascript:void(0)">匿名</a>:<a href="javascript:void(0)">@匿名</a><span>这写的是什么鬼东西。。。。</span></div>
+                                                                <p><span>2017-10-17 11:42:53</span> <span class="reply-list-btn">回复</span></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                             -->
+
+
+                                        </div>
+                                    </div>
+
+<!--
+                                    <script type="text/javascript" src="js/jquery.min.js"></script>
+-->
+                                    <script type="text/javascript" src="../pl/js/jquery.comment.js" ></script>
+                                    <script type="text/javascript" src="../pl/js/bootstrap.min.js"></script>
+                                    <script type="text/javascript">
+
+                                        //初始化数据
+                                        var arr = [
+                                            {id:1,img:"https://imgmore1.oss-cn-beijing.aliyuncs.com/imgmore1/1575512699895.jpg",replyName:"帅大叔",beReplyName:"匿名",content:"房主人非常好,屋里环境非常不错",time:"2020-1-18 12:39:53",replyBody:[]},
+/*
+                                            {id:2,img:"https://imgmore1.oss-cn-beijing.aliyuncs.com/imgmore1/1575509209925.jpg",replyName:"匿名",beReplyName:"",content:"非常不错",time:"2017-10-17 11:42:53",address:"深圳",osname:"",browse:"谷歌",replyBody:[{id:3,img:"",replyName:"帅大叔",beReplyName:"匿名",content:"来啊，我们一起吃鸡",time:"2017-10-17 11:42:53",address:"",osname:"",browse:"谷歌"}]},
+*/
+                                            {id:2,img:"https://imgmore1.oss-cn-beijing.aliyuncs.com/imgmore1/1575509209925.jpg",replyName:"匿名",beReplyName:"",content:"非常不错",time:"2020-1-18 11:42:53",replyBody:[{id:3,img:"",replyName:"帅大叔",beReplyName:"匿名",content:"来啊，我们一起吃鸡",time:"2020-01-18 11:43:53",address:"",osname:"",browse:"谷歌"}]},
+                                        ];
+
+                                        $(function(){
+                                            $(".comment-list").addCommentList({data:arr,add:""});
+                                            $("#comment").click(function(){
+                                                var obj = new Object();
+                                                obj.img="https://imgmore1.oss-cn-beijing.aliyuncs.com/imgmore1/1578618966781.jpg";
+                                                obj.replyName="懒人";
+                                                obj.content=$("#content").val();
+                                                // obj.browse="深圳";
+                                                // obj.osname="win10";
+                                                obj.replyBody="";
+                                                $(".comment-list").addCommentList({data:[],add:obj});
+                                            });
+                                        })
+                                    </script>
+
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
 
                 </div>
 
